@@ -13,6 +13,11 @@ class InvoiceController extends Controller
         return $invoices;
     }
 
+    public function findOne(Request $r) {
+        $invoice = Invoice::find($r->id);
+        return $invoice->user()->get();
+    }
+
     public function create(Request $r)
     {
         // Obtém apenas os campos necessários

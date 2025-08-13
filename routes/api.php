@@ -24,5 +24,8 @@ Route::post('/addresses', [AddressController::class, 'create']);
 //Rota para listar endereços de um usuário
 Route::get('/invoices', [InvoiceController::class, 'index']);
 
+// Buscar invoice por ID
+Route::get('/invoices/{id}', [InvoiceController::class, 'findOne']);
+
 //Inclui a rota para criar um novo endereço
 Route::post('/invoice', [InvoiceController::class, 'create']);
