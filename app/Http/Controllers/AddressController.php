@@ -19,22 +19,10 @@ class AddressController extends Controller
     }
 
     // Criar novo endereço
-    public function create(Request $r) {
-        $validateData = $r->validate([
-            'street' => 'required|string|max:255',
-        ]);
-        $address = Address::create(
-            [
-                'street' => $validateData['street'],
-                'created_at' => now(),
-                'updated_at' => now()
-            ]
-        );
-    }
-    //Mostra endereço especifico
-    public function show($id)
+    public function create(Request $r)
     {
-        $address = Address::findOrFail($id);
-        return response()->json($address);      
-    }    
+        $rawData = $r->only('street');
+        $address = Address::create($rawData);
+        return $address;
+    }
 }

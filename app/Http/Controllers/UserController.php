@@ -22,7 +22,10 @@ class UserController extends Controller
     public function create(Request $r)
     {
         $rawData = $r->only('name', 'email', 'password');
-        return $rawData;
+
+        $user = User::create($rawData);
+
+        return $user;
     
     }
 
