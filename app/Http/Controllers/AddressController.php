@@ -22,7 +22,9 @@ class AddressController extends Controller
     public function create(Request $r)
     {
         $rawData = $r->only('street');
-        $address = Address::create($rawData);
-        return $address;
+
+        $addressess = Address::create($rawData);
+
+        return $addressess;
     }
 }
