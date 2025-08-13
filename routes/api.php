@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\InvoiceController;
 
 //Rota para usuarios
 Route::get('/users', [UserController::class, 'index']);
@@ -18,3 +19,10 @@ Route::get('/addresses', [AddressController::class, 'index']);
 Route::get('/addresses/{id}', [AddressController::class, 'findOne']);
 //Inclui a rota para criar um novo endereço
 Route::post('/addresses', [AddressController::class, 'create']);
+
+
+//Rota para listar endereços de um usuário
+Route::get('/invoices', [InvoiceController::class, 'index']);
+
+//Inclui a rota para criar um novo endereço
+Route::post('/invoice', [InvoiceController::class, 'create']);
